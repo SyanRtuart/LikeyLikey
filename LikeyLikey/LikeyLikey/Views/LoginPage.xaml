@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LikeyLikey.Views.LoginPage"
+             BackgroundImage="Background.jpg"
+             NavigationPage.HasNavigationBar="False"
+             >
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <x:Int32 x:Key="borderRadius">20</x:Int32>
+            <Color x:Key="buttonBackgroundColor">Black</Color>
+            <Color x:Key="textColor">White</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,10,0,0" Grid.Row="1">
+                <Label TextColor="White" FontSize="30" Text="{Binding Title}"></Label>
+            </StackLayout>
+            
+            <Grid Grid.Row="2" Margin="20,0,20,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                
+                <Entry Grid.Row="1"  Text="{Binding Email}" TextColor="White"  Placeholder="Email" PlaceholderColor="#bababa" FontSize="12"/>
+                <Entry Grid.Row="2" Text="{Binding Password}" TextColor="White"  Placeholder="Password" PlaceholderColor="#bababa" FontSize="12"/>
+                <Label Grid.Row="3" TextColor="White" HorizontalTextAlignment="Center" FontAttributes="Bold" >FORGOT PASSWORD?</Label>
+                <Button Grid.Row="4" Command="{Binding LoginAttemptCommand,Mode=TwoWay}"  Text="LOGIN" HeightRequest="40" VerticalOptions="Start"/>
+            </Grid>
+
+            
+            <StackLayout Grid.Row="3" >
+                <Label HeightRequest="1"/>
+                <Label TextColor="White"  Text="Don't have an account? Sign Up" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center" HorizontalTextAlignment="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavigateToRegisterPageCommand}" ></TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
+
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
