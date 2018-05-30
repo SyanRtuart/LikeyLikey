@@ -16,7 +16,7 @@ namespace LikeyLikey.ViewModels
     {
         public ICommand RegisterAttemptCommand { get; private set; }
         public string Title { get; set; } = "Register";
-        private Register _register = new Register();
+        private User _userRegistering = new User();
         private string _email;
 
         public string Email
@@ -27,8 +27,8 @@ namespace LikeyLikey.ViewModels
                 if (_email != value)
                 {
                     _email = value;
-                    _register.Email = _email;
-                    _register.Username = _email;
+                    _userRegistering.Email = _email;
+                    _userRegistering.Username = _email;
                     ((Command)RegisterAttemptCommand).ChangeCanExecute();
                 }
             }
@@ -44,7 +44,7 @@ namespace LikeyLikey.ViewModels
                 if (_password != value)
                 {
                     _password = value;
-                    _register.Password = _password;
+                    _userRegistering.Password = _password;
                     ((Command)RegisterAttemptCommand).ChangeCanExecute();
                 }
             }
@@ -60,7 +60,7 @@ namespace LikeyLikey.ViewModels
                 if (_confirmPassword != value)
                 {
                     _confirmPassword = value;
-                    _register.ConfirmPassword = _confirmPassword;
+                    _userRegistering.ConfirmPassword = _confirmPassword;
                     ((Command)RegisterAttemptCommand).ChangeCanExecute();
                 }
             }
@@ -91,15 +91,15 @@ namespace LikeyLikey.ViewModels
             try
             {
 
-                GenericProxies.RestPostAsync<string, Register>(url, _register,
+                GenericProxies.RestPostAsync<string, User>(url, _userRegistering,
                                     (ex, evaluatedStudent) =>
                                     {
                                         if (ex != null)
                                             Console.WriteLine("BROKE");
 
                                         else
-                                            Settings.Email = _register.Email;
-                                            Settings.Password = _register.Password;
+                                            Settings.Email = _userRegistering.Email;
+                                            Settings.Password = _userRegistering.Password;
                                             _pageService.PopAsync();
                                     }
                     );

@@ -20,7 +20,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\RestService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\Settings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Movie.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\Register.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\User.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\PageService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
