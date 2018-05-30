@@ -4,6 +4,7 @@ using LikeyLikey.Abstractions;
 using LikeyLikey.Views;
 using LikeyLikey.Helpers;
 using System.Threading.Tasks;
+using LightCaseClient;
 
 namespace LikeyLikey.ViewModels
 {
@@ -72,14 +73,37 @@ namespace LikeyLikey.ViewModels
 
         private void LoginAttempt()
         {
-            if (Email == "1" & Password == "1")
-            {
-                _pageService.PushModalAsync(new MainPage());
-            }
-            else
-            {
-                _pageService.DisplayAlert("Invalid!", "Invalid Login", "Ok", "Cancel");
-            }
+            string url = "http://likey20180525084949.azurewebsites.net/token";
+
+
+            GenericProxies.RestPostAsync<string, User>(url, _userRegistering,
+                                   (ex, registeredUser) =>
+                                   {
+                                       if (ex != null)
+                                           Console.WriteLine("Failed to call the service -" + ex.Message);
+                                       else
+                                       {
+                                           Settings.Email = _userRegistering.Email;
+                                           Settings.Password = _userRegistering.Password;
+                                           _pageService.PopModalAsync();
+                                       }
+
+                                   }
+                   );
+
+
+
+
+
+
+            //if (Email == "1" & Password == "1")
+            //{
+            //    _pageService.PushModalAsync(new MainPage());
+            //}
+            //else
+            //{
+            //    _pageService.DisplayAlert("Invalid!", "Invalid Login", "Ok", "Cancel");
+            //}
 
         }
 

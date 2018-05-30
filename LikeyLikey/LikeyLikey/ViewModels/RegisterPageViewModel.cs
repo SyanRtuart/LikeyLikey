@@ -98,13 +98,12 @@ namespace LikeyLikey.ViewModels
                                     (ex, registeredUser) =>
                                     {
                                         if (ex != null)
-                                        {
-                                            _pageService.PopModalAsync();
-                                        }
+                                            Console.WriteLine("Failed to call the service -" + ex.Message);
                                         else
                                         {
                                             Settings.Email = _userRegistering.Email;
                                             Settings.Password = _userRegistering.Password;
+                                            _pageService.PopModalAsync();
                                         }
                                                                                     
                                     }
