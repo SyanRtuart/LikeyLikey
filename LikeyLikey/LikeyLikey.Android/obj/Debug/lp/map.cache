@@ -27,3 +27,5 @@ netstandard
 Newtonsoft.Json
 LightCaseClient
 System.Web.Extensions
+Plugin.Settings.Abstractions
+Plugin.Settings

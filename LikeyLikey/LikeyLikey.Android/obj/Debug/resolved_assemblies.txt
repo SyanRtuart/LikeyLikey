@@ -5,6 +5,8 @@ C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\an
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\android\assets\Mono.Android.dll
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\android\assets\mscorlib.dll
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\android\assets\Newtonsoft.Json.dll
+C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\android\assets\Plugin.Settings.Abstractions.dll
+C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\android\assets\Plugin.Settings.dll
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\android\assets\System.Core.dll
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\android\assets\System.dll
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\android\assets\System.Net.Http.dll

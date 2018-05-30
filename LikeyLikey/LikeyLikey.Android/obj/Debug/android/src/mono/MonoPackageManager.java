@@ -110,6 +110,8 @@ class MonoPackageManager_Resources {
 		"FormsViewGroup.dll",
 		"LightCaseClient.dll",
 		"Newtonsoft.Json.dll",
+		"Plugin.Settings.Abstractions.dll",
+		"Plugin.Settings.dll",
 		"Xamarin.Android.Arch.Core.Common.dll",
 		"Xamarin.Android.Arch.Lifecycle.Common.dll",
 		"Xamarin.Android.Arch.Lifecycle.Runtime.dll",

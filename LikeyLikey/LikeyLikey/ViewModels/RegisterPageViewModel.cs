@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
+using LikeyLikey.Helpers;
+using System.Threading.Tasks;
 
 namespace LikeyLikey.ViewModels
 {
@@ -69,8 +71,17 @@ namespace LikeyLikey.ViewModels
         public RegisterPageViewModel(IPageService pageService)
         {
             _pageService = pageService;
-            RegisterAttemptCommand = new Command(RegisterAttempt, CanRegister);
+            RegisterAttemptCommand = new Command(async ()  => await RegisterAttemptAsync (), CanRegister);
         }
+
+
+        async Task RegisterAttemptAsync()
+        {
+            await Task.Run(() => RegisterAttempt());
+
+        }
+
+
 
         private void RegisterAttempt()
         {
@@ -79,7 +90,23 @@ namespace LikeyLikey.ViewModels
             {
                 //GenericProxies.RestPost<string, (string, string)>(url, (_email, _password));
 
-                GenericProxies.RestPost<string, Register>(url, _register);
+                //GenericProxies.RestPost<string, Register>(url, _register);
+                Settings.Username = _register.Email;
+                Settings.Password = _register.Password;
+                GenericProxies.RestPostAsync<string, Register>(url, _register,
+                                    (ex, evaluatedStudent) =>
+                                    {
+                                        if (ex != null)
+                                            Console.WriteLine("BROKE");
+
+                                        else
+                                            Console.WriteLine("WIN");
+
+
+                                    }
+                    );
+
+                //if successful then add to
 
             }
             catch (Exception ex)

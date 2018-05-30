@@ -2,6 +2,7 @@
 using Xamarin.Forms;
 using LikeyLikey.Abstractions;
 using LikeyLikey.Views;
+using LikeyLikey.Helpers;
 
 namespace LikeyLikey.ViewModels
 {
@@ -50,6 +51,9 @@ namespace LikeyLikey.ViewModels
             _pageService = pageService;
             LoginAttemptCommand = new Command(LoginAttempt, CanLogin);
             NavigateToRegisterPageCommand = new Command(NavigateToRegisterPage);
+            Email = Settings.Username;
+            Password = Settings.Password;
+            
         }
 
         private void LoginAttempt()
