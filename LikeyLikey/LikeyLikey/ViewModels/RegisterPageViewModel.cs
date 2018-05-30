@@ -92,11 +92,12 @@ namespace LikeyLikey.ViewModels
         {
             _pageService = pageService;
 #if DEBUG
-            Email = "ryan@likeylikey.com";
-            Password = "likeylikeyPassword";
+            Email = "ryan123@likeylikey.com";
+            Password = "likeylikeyPassword123";
+            ConfirmPassword = "likeylikeyPassword123";
 #endif 
         }
-        
+
 
         private bool CanRegister()
         {

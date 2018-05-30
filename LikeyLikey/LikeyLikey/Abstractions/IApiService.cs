@@ -8,6 +8,7 @@ namespace LikeyLikey.Abstractions
     public interface IApiService
     {
         Task<bool> RegisterAsync(string email, string password, string confirmPassword);
+        Task<string> LoginAsync(string email, string password);
 
     }
 }

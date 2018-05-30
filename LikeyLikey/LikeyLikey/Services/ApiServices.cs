@@ -1,6 +1,7 @@
 ﻿using LikeyLikey.Abstractions;
 using LikeyLikey.Models;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -12,6 +13,32 @@ namespace LikeyLikey.Services
 {
     class ApiService : IApiService
     {
+        public async Task<string> LoginAsync(string email, string password)
+        {
+            var keyValues = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("username", email),
+                new KeyValuePair<string, string>("password", password),
+                new KeyValuePair<string, string>("grant_type", "password")
+            };
+
+            var request = new HttpRequestMessage(HttpMethod.Post, "http://likey20180525084949.azurewebsites.net/token");
+
+            request.Content = new FormUrlEncodedContent(keyValues);
+
+            var client = new HttpClient();
+            var response = await client.SendAsync(request);
+
+            var jwt = await response.Content.ReadAsStringAsync();
+
+            var jwtDynamic = JsonConvert.DeserializeObject<Token>(jwt);
+
+            return jwtDynamic.AccessToken;
+
+
+
+        }
+
         public async Task<bool> RegisterAsync(string email, string password, string confirmPassword)
         {
             var client = new HttpClient();

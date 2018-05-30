@@ -4,12 +4,28 @@ using LikeyLikey.Abstractions;
 using LikeyLikey.Views;
 using LikeyLikey.Helpers;
 using System.Threading.Tasks;
+using LikeyLikey.Services;
 
 namespace LikeyLikey.ViewModels
 {
     public class LoginPageViewModel : BaseViewModel
     {
-        public ICommand LoginAttemptCommand { get; private set; }
+        public ICommand LoginAttemptCommand
+        {
+            get
+            {
+                return new Command(async () =>
+                {
+                    var accessToken = await _apiService.LoginAsync (Email, Password);
+
+                    Settings.AccessToken = accessToken;
+                    
+                }, CanLogin);
+            }
+        }
+
+
+        private ApiService _apiService = new ApiService();
         public ICommand NavigateToRegisterPageCommand { get; private set; }
 
         public string Title { get; set; } = "Likey? Likey!";
@@ -50,33 +66,13 @@ namespace LikeyLikey.ViewModels
         public LoginPageViewModel(IPageService pageService)
         {
             _pageService = pageService;
-            LoginAttemptCommand = new Command(async () => await LoginAttemptAsync(), CanLogin);
             NavigateToRegisterPageCommand = new Command(NavigateToRegisterPage);
-
-#if DEBUG 
-            Settings.Email = "ryan@likeylikey.com";
-            Settings.Password = "likeylikeyPassword";
-#endif 
-
             Email = Settings.Email;
             Password = Settings.Password;
             
         }
 
-
-        async Task LoginAttemptAsync()
-        {
-            await Task.Run(() => LoginAttempt());
-
-        }
-
-        private void LoginAttempt()
-        {
-            string url = "http://likey20180525084949.azurewebsites.net/token";
-
-
-        }
-
+        
         private bool CanLogin()
         {
             return !string.IsNullOrEmpty(Email) && !string.IsNullOrEmpty(Password);
