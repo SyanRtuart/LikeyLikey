@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using LikeyLikey.Abstractions;
 using LikeyLikey.Views;
 using LikeyLikey.Helpers;
+using System.Threading.Tasks;
 
 namespace LikeyLikey.ViewModels
 {
@@ -49,11 +50,24 @@ namespace LikeyLikey.ViewModels
         public LoginPageViewModel(IPageService pageService)
         {
             _pageService = pageService;
-            LoginAttemptCommand = new Command(LoginAttempt, CanLogin);
+            LoginAttemptCommand = new Command(async () => await LoginAttemptAsync(), CanLogin);
             NavigateToRegisterPageCommand = new Command(NavigateToRegisterPage);
-            Email = Settings.Username;
+
+#if DEBUG 
+            Settings.Email = "ryan@likeylikey.com";
+            Settings.Password = "likeylikeyPassword";
+#endif 
+
+            Email = Settings.Email;
             Password = Settings.Password;
             
+        }
+
+
+        async Task LoginAttemptAsync()
+        {
+            await Task.Run(() => LoginAttempt());
+
         }
 
         private void LoginAttempt()
