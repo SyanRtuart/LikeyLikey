@@ -72,8 +72,10 @@ namespace LikeyLikey.ViewModels
         {
             _pageService = pageService;
             RegisterAttemptCommand = new Command(async ()  => await RegisterAttemptAsync (), CanRegister);
-            Email = "beattie.edwin@gmail.com";
-            Password = "invasi0n";
+#if DEBUG
+            Email = "ryan@likeylikey.com";
+            Password = "likeylikeyPassword";
+#endif 
         }
 
 
@@ -88,19 +90,23 @@ namespace LikeyLikey.ViewModels
         private void RegisterAttempt()
         {
             string url = "http://likey20180525084949.azurewebsites.net/api/account/register";
+           
             try
             {
 
                 GenericProxies.RestPostAsync<string, User>(url, _userRegistering,
-                                    (ex, evaluatedStudent) =>
+                                    (ex, registeredUser) =>
                                     {
                                         if (ex != null)
-                                            Console.WriteLine("BROKE");
-
+                                        {
+                                            _pageService.PopModalAsync();
+                                        }
                                         else
+                                        {
                                             Settings.Email = _userRegistering.Email;
                                             Settings.Password = _userRegistering.Password;
-                                            _pageService.PopAsync();
+                                        }
+                                                                                    
                                     }
                     );
             }

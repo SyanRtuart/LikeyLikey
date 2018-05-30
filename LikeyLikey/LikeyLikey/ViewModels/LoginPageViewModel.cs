@@ -74,7 +74,7 @@ namespace LikeyLikey.ViewModels
         {
             if (Email == "1" & Password == "1")
             {
-                _pageService.PushAsync(new MainPage());
+                _pageService.PushModalAsync(new MainPage());
             }
             else
             {
@@ -90,7 +90,7 @@ namespace LikeyLikey.ViewModels
 
         private void NavigateToRegisterPage()
         {
-            _pageService.PushAsync(new RegisterPage());
+            _pageService.PushModalAsync(new RegisterPage());
 
         }
 
