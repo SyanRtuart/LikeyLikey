@@ -155,7 +155,6 @@ C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\an
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\bin\Debug\LikeyLikey.Android.dll
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\linksrc\LikeyLikey.Android.dll.mdb
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\linksrc\FormsViewGroup.dll.mdb
-C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\linksrc\LightCaseClient.dll.mdb
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\linksrc\Plugin.Settings.Abstractions.dll.mdb
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\linksrc\Plugin.Settings.dll.mdb
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\linksrc\Xamarin.Forms.Platform.Android.dll.mdb

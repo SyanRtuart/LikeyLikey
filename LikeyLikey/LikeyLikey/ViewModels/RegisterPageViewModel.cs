@@ -1,22 +1,40 @@
-﻿using LightCaseClient;
-using LikeyLikey.Abstractions;
+﻿using LikeyLikey.Abstractions;
 using LikeyLikey.Models;
-using LikeyLikey.Views;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 using LikeyLikey.Helpers;
-using System.Threading.Tasks;
+using LikeyLikey.Services;
 
 namespace LikeyLikey.ViewModels
 {
     public class RegisterPageViewModel : BaseViewModel
     {
-        public ICommand RegisterAttemptCommand { get; private set; }
-        public string Title { get; set; } = "Register";
+        public ICommand RegisterAttemptCommand
+        {
+            get
+            {
+                return new Command(async () =>
+                    {
+                        var isSuccess = await _apiService.RegisterAsync(Email, Password, ConfirmPassword);
+
+                        if (isSuccess)
+                        {
+                            Settings.Email = Email;
+                            Settings.Password = Password;
+                            await _pageService.PopModalAsync();
+                        }
+                        else
+                            await _pageService.DisplayAlert("Unsuccessful", "Unable to register - Please try again", "Ok", "Cancel");
+
+                        
+                    }, CanRegister);
+            }
+        }
+
+
         private User _userRegistering = new User();
+        private ApiService _apiService = new ApiService();
+
         private string _email;
 
         public string Email
@@ -67,54 +85,18 @@ namespace LikeyLikey.ViewModels
         }
 
 
+        public string Title { get; set; } = "Register";
+
         private readonly IPageService _pageService;
         public RegisterPageViewModel(IPageService pageService)
         {
             _pageService = pageService;
-            RegisterAttemptCommand = new Command(async ()  => await RegisterAttemptAsync (), CanRegister);
 #if DEBUG
             Email = "ryan@likeylikey.com";
             Password = "likeylikeyPassword";
 #endif 
         }
-
-
-        async Task RegisterAttemptAsync()
-        {
-            await Task.Run(() => RegisterAttempt());
-
-        }
-
-
-
-        private void RegisterAttempt()
-        {
-            string url = "http://likey20180525084949.azurewebsites.net/api/account/register";
-           
-            try
-            {
-
-                GenericProxies.RestPostAsync<string, User>(url, _userRegistering,
-                                    (ex, registeredUser) =>
-                                    {
-                                        if (ex != null)
-                                            Console.WriteLine("Failed to call the service -" + ex.Message);
-                                        else
-                                        {
-                                            Settings.Email = _userRegistering.Email;
-                                            Settings.Password = _userRegistering.Password;
-                                            _pageService.PopModalAsync();
-                                        }
-                                                                                    
-                                    }
-                    );
-            }
-            catch (Exception ex)
-            {
-
-                Console.WriteLine(ex.Message);
-            }
-        }
+        
 
         private bool CanRegister()
         {

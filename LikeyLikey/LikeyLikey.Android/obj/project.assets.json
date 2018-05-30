@@ -360,15 +360,6 @@
           "build/netstandard2.0/Xamarin.Forms.props": {},
           "build/netstandard2.0/Xamarin.Forms.targets": {}
         }
-      },
-      "LightCaseClient/1.0.0": {
-        "type": "project",
-        "compile": {
-          "bin/placeholder/LightCaseClient.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/LightCaseClient.dll": {}
-        }
       }
     }
   },
@@ -839,16 +830,10 @@
         "xamarin.forms.3.0.0.446417.nupkg.sha512",
         "xamarin.forms.nuspec"
       ]
-    },
-    "LightCaseClient/1.0.0": {
-      "type": "project",
-      "path": "E:\\Development\\LightCaseClient\\LightCaseClient\\LightCaseClient.csproj",
-      "msbuildProject": "E:\\Development\\LightCaseClient\\LightCaseClient\\LightCaseClient.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "MonoAndroid,Version=v8.1": [
-      "LightCaseClient >= 1.0.0",
       "Newtonsoft.Json >= 11.0.2",
       "Xam.Plugins.Settings >= 3.1.1",
       "Xamarin.Android.Support.Design >= 27.0.2",
@@ -885,11 +870,7 @@
       },
       "frameworks": {
         "monoandroid81": {
-          "projectReferences": {
-            "E:\\Development\\LightCaseClient\\LightCaseClient\\LightCaseClient.csproj": {
-              "projectPath": "E:\\Development\\LightCaseClient\\LightCaseClient\\LightCaseClient.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       }
     },

@@ -102,12 +102,6 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Background.jpg" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="E:\Development\LightCaseClient\LightCaseClient\LightCaseClient.csproj">
-      <Project>{c491c1ee-b395-47a2-b789-07990a7857aa}</Project>
-      <Name>LightCaseClient</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="..\LikeyLikey\LikeyLikey.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

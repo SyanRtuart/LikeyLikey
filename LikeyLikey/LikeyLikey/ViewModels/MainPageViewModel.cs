@@ -1,14 +1,8 @@
 ﻿using LikeyLikey.Abstractions;
-using LikeyLikey.Data;
-using LikeyLikey.Models;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
-using LightCaseClient;
 
 namespace LikeyLikey.ViewModels
 {
@@ -22,9 +16,6 @@ namespace LikeyLikey.ViewModels
 
         public MainPageViewModel()
         {
-            //GetMoviesCommand = new Command(async vm => await GetMoviesAsync());
-            restService = new RestService();
-            
             GetMoviesCommand = new Command(GetMovieAsync);
         }
 
@@ -45,14 +36,6 @@ namespace LikeyLikey.ViewModels
         private void GetMovieAsync(object obj)
         {
 
-            GenericProxies.RestGetAsync<MovieViewModel>(_restUrl,
-                (ex, evaluatedMovie) =>
-                {
-                    if (ex != null)
-                        Console.WriteLine("Failed GetMovieAsync " + ex.Message);
-                    else
-                        Movies.Add(evaluatedMovie);                    
-                });
 
         }
 
