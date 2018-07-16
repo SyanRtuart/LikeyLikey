@@ -13,6 +13,13 @@ namespace LikeyLikey.Services
 {
     class ApiService : IApiService
     {
+        private string _url = @"http://likey20180525084949.azurewebsites.net/";
+
+        private string _movieUrl = @"http://www.omdbapi.com/?i=tt3896198&apikey=90caf548";
+
+
+        
+
         private HttpClient _client = new HttpClient();
         private List<KeyValuePair<string, string>> _settingsKeyValuePair = new List<KeyValuePair<string, string>>();
 
@@ -22,7 +29,10 @@ namespace LikeyLikey.Services
             _settingsKeyValuePair.Add(new KeyValuePair<string, string>("password", password));
             _settingsKeyValuePair.Add(new KeyValuePair<string, string>("grant_type", "password"));
 
-            var request = new HttpRequestMessage(HttpMethod.Post, "http://likey20180525084949.azurewebsites.net/token");
+            //var request = new HttpRequestMessage(HttpMethod.Post, "http://likey20180525084949.azurewebsites.net/token");
+
+            var request = new HttpRequestMessage(HttpMethod.Post, _url + "token");
+
 
             request.Content = new FormUrlEncodedContent(_settingsKeyValuePair);
          
@@ -51,24 +61,19 @@ namespace LikeyLikey.Services
 
             content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-            var response = await _client.PostAsync("http://likey20180525084949.azurewebsites.net/api/account/register", content);
+            var response = await _client.PostAsync(_url + "api/account/register", content);
 
             return response.IsSuccessStatusCode;
         }
 
-        //public async Task<bool> GetMovie(string accessToken)
-        //{
-            
-        //    var json = JsonConvert.SerializeObject(user);
+        public async Task<Movie> GetMovie()
+        {
+            var response = await _client.GetAsync(_movieUrl);
+            var jwt = await response.Content.ReadAsStringAsync();
+            var movie = JsonConvert.DeserializeObject<Movie>(jwt);
 
-        //    var content = new StringContent(json);
-
-        //    content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-
-        //    var response = await _client.PostAsync("http://likey20180525084949.azurewebsites.net/api/account/register", content);
-
-        //    return response.IsSuccessStatusCode;
-        //}
+            return movie;
+        }
 
     }
 }

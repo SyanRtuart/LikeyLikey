@@ -1,4 +1,5 @@
 ﻿using LikeyLikey.Abstractions;
+using LikeyLikey.Models;
 using System;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
@@ -8,11 +9,22 @@ namespace LikeyLikey.ViewModels
 {
     public class MainPageViewModel : BaseViewModel
     {
-        public ICommand GetMoviesCommand { get; private set; }
+        public ICommand GetNextMovieCommand { get; private set; }
 
-        public ObservableCollection<MovieViewModel> Movies { get; private set; } = new ObservableCollection<MovieViewModel>();
+        private Movie _movie;
+
+        public Movie Movie
+        {
+            get { return _movie; }
+            set {
+                _movie = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+        //public ObservableCollection<MovieViewModel> Movies { get; private set; } = new ObservableCollection<MovieViewModel>();
         private string _restUrl = "http://www.omdbapi.com/?i=tt0111161&apikey=7dc7fa6d";
-
         private readonly IApiService _apiService;
         private readonly IPageService _pageService;
 
@@ -20,7 +32,7 @@ namespace LikeyLikey.ViewModels
         {
             _apiService = apiService;
             _pageService = pageService;
-            GetMoviesCommand = new Command(GetMovieAsync);
+            GetNextMovieCommand = new Command(GetNextMovieAsync);
         }
 
         //private void GetMovie(object obj)
@@ -37,10 +49,10 @@ namespace LikeyLikey.ViewModels
 
         //}
 
-        private void GetMovieAsync(object obj)
+        private async void GetNextMovieAsync(object obj)
         {
-
-
+            Movie = await _apiService.GetMovie();
+            
         }
 
 

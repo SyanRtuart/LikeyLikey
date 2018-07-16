@@ -61,7 +61,15 @@ namespace LikeyLikey.ViewModels
 
         private async Task LoginAttempt()
         {
-            var accessToken = await _apiService.LoginAsync(Email, Password);
+
+            string accessToken = null;
+            if (Settings.AccessToken == "")
+                accessToken = await _apiService.LoginAsync(Email, Password);
+            else
+                accessToken = Settings.AccessToken;
+
+
+
 
             if (accessToken != null)
             {

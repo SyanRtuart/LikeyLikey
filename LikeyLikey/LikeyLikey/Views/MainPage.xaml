@@ -3,16 +3,45 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LikeyLikey.Views.MainPage">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="GET" Command="{Binding GetMoviesCommand}" />
+        <!--<ToolbarItem Text="GET" Command="{Binding GetMoviesCommand}" />-->
     </ContentPage.ToolbarItems>
-    <ListView ItemsSource="{Binding Movies}">
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <TextCell 
-					Text="{Binding Title}" 
 
-					/>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="1" Text="{Binding Movie.Title}" ></Label>
+        <Label Grid.Row="2" Text="{Binding Movie.Year}" ></Label>
+        <Label Grid.Row="3" Text="{Binding Movie.Rated}" ></Label>
+        <Label Grid.Row="4" Text="{Binding Movie.Released}" ></Label>
+        <Label Grid.Row="5" Text="{Binding Movie.Runtime}" ></Label>
+        <Label Grid.Row="6" Text="{Binding Movie.Genre}" ></Label>
+        <Label Grid.Row="7" Text="{Binding Movie.Director}" ></Label>
+        <Label Grid.Row="8" Text="{Binding Movie.Writer}" ></Label>
+        <Label Grid.Row="9" Text="{Binding Movie.Metascore}" ></Label>
+
+
+
+
+        <Button Grid.Row="12" Command="{Binding GetNextMovieCommand,Mode=TwoWay}"  Text="GET MOVIE" HeightRequest="40" VerticalOptions="Start"/>
+
+    </Grid>
+
+
+
+
+
 </ContentPage>
