@@ -5,33 +5,16 @@ using LikeyLikey.Views;
 using LikeyLikey.Helpers;
 using System.Threading.Tasks;
 using LikeyLikey.Services;
+using System;
 
 namespace LikeyLikey.ViewModels
 {
     public class LoginPageViewModel : BaseViewModel
     {
-        public ICommand LoginAttemptCommand
-        {
-            get
-            {
-                return new Command(async () =>
-                {
-                    var accessToken = await _apiService.LoginAsync (Email, Password);
-
-                    Settings.AccessToken = accessToken;
-                    
-                }, CanLogin);
-            }
-        }
-
-
-        private ApiService _apiService = new ApiService();
+        public ICommand LoginAttemptCommand { get;  private set; }
         public ICommand NavigateToRegisterPageCommand { get; private set; }
 
-        public string Title { get; set; } = "Likey? Likey!";
-
         private string _email;
-
         public string Email
         {
             get { return _email; }
@@ -46,7 +29,6 @@ namespace LikeyLikey.ViewModels
         }
 
         private string _password;
-
         public string Password
         {
             get { return _password; }
@@ -60,19 +42,40 @@ namespace LikeyLikey.ViewModels
             }
         }
 
-        public bool RememberMe { get; set; }
-
+        private readonly IApiService _apiService;
         private readonly IPageService _pageService;
-        public LoginPageViewModel(IPageService pageService)
+
+        public string Title { get; set; } = "Likey? Likey!";
+
+
+        public LoginPageViewModel(IPageService pageService, IApiService apiService)
         {
+            _apiService = apiService;
             _pageService = pageService;
             NavigateToRegisterPageCommand = new Command(NavigateToRegisterPage);
+            LoginAttemptCommand = new Command(async () => await LoginAttempt(),() => CanLogin());
             Email = Settings.Email;
             Password = Settings.Password;
             
         }
 
-        
+        private async Task LoginAttempt()
+        {
+            var accessToken = await _apiService.LoginAsync(Email, Password);
+
+            if (accessToken != null)
+            {
+                Settings.AccessToken = accessToken;
+
+                //await _pageService.DisplayAlert("Youre in", "You have logged in - Please try again", "Ok", "Cancel");
+                await _pageService.PushModalAsync(new MainPage());
+            }
+            else
+                await _pageService.DisplayAlert("Unsuccessful", "Unable to Login - Please try again", "Ok", "Cancel");
+            
+
+        }
+
         private bool CanLogin()
         {
             return !string.IsNullOrEmpty(Email) && !string.IsNullOrEmpty(Password);

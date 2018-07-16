@@ -13,36 +13,30 @@ namespace LikeyLikey.Services
 {
     class ApiService : IApiService
     {
+        private HttpClient _client = new HttpClient();
+        private List<KeyValuePair<string, string>> _settingsKeyValuePair = new List<KeyValuePair<string, string>>();
+
         public async Task<string> LoginAsync(string email, string password)
         {
-            var keyValues = new List<KeyValuePair<string, string>>
-            {
-                new KeyValuePair<string, string>("username", email),
-                new KeyValuePair<string, string>("password", password),
-                new KeyValuePair<string, string>("grant_type", "password")
-            };
+            _settingsKeyValuePair.Add(new KeyValuePair<string, string>("username", email));
+            _settingsKeyValuePair.Add(new KeyValuePair<string, string>("password", password));
+            _settingsKeyValuePair.Add(new KeyValuePair<string, string>("grant_type", "password"));
 
             var request = new HttpRequestMessage(HttpMethod.Post, "http://likey20180525084949.azurewebsites.net/token");
 
-            request.Content = new FormUrlEncodedContent(keyValues);
-
-            var client = new HttpClient();
-            var response = await client.SendAsync(request);
+            request.Content = new FormUrlEncodedContent(_settingsKeyValuePair);
+         
+            var response = await _client.SendAsync(request);
 
             var jwt = await response.Content.ReadAsStringAsync();
 
             var jwtDynamic = JsonConvert.DeserializeObject<Token>(jwt);
 
             return jwtDynamic.AccessToken;
-
-
-
         }
 
         public async Task<bool> RegisterAsync(string email, string password, string confirmPassword)
-        {
-            var client = new HttpClient();
-
+        {            
             var user = new User
             {
                 Email = email,
@@ -57,10 +51,24 @@ namespace LikeyLikey.Services
 
             content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-            var response = await client.PostAsync("http://likey20180525084949.azurewebsites.net/api/account/register", content);
+            var response = await _client.PostAsync("http://likey20180525084949.azurewebsites.net/api/account/register", content);
 
             return response.IsSuccessStatusCode;
-
         }
+
+        //public async Task<bool> GetMovie(string accessToken)
+        //{
+            
+        //    var json = JsonConvert.SerializeObject(user);
+
+        //    var content = new StringContent(json);
+
+        //    content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+        //    var response = await _client.PostAsync("http://likey20180525084949.azurewebsites.net/api/account/register", content);
+
+        //    return response.IsSuccessStatusCode;
+        //}
+
     }
 }

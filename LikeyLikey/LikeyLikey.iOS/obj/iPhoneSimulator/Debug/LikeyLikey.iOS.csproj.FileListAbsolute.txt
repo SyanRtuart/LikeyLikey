@@ -53,6 +53,7 @@ C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.iOS\obj\iPhoneSimula
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.iOS\obj\iPhoneSimulator\Debug\LikeyLikey.iOS.exe
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.iOS\obj\iPhoneSimulator\Debug\LikeyLikey.iOS.pdb
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.iOS\bin\iPhoneSimulator\Debug\Newtonsoft.Json.dll
-C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.iOS\bin\iPhoneSimulator\Debug\LightCaseClient.dll
-C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.iOS\bin\iPhoneSimulator\Debug\LightCaseClient.pdb
-C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.iOS\bin\iPhoneSimulator\Debug\LightCaseClient.dll.mdb
+C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.iOS\bin\iPhoneSimulator\Debug\System.Net.Http.dll
+C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.iOS\bin\iPhoneSimulator\Debug\Plugin.Settings.Abstractions.dll
+C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.iOS\bin\iPhoneSimulator\Debug\Plugin.Settings.Abstractions.pdb
+C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.iOS\bin\iPhoneSimulator\Debug\Plugin.Settings.dll

@@ -8,30 +8,34 @@ namespace LikeyLikey.ViewModels
 {
     public class MainPageViewModel : BaseViewModel
     {
-        IRestService restService;
+        public ICommand GetMoviesCommand { get; private set; }
+
         public ObservableCollection<MovieViewModel> Movies { get; private set; } = new ObservableCollection<MovieViewModel>();
         private string _restUrl = "http://www.omdbapi.com/?i=tt0111161&apikey=7dc7fa6d";
 
-        public ICommand GetMoviesCommand { get; private set; }
+        private readonly IApiService _apiService;
+        private readonly IPageService _pageService;
 
-        public MainPageViewModel()
+        public MainPageViewModel(IPageService pageService, IApiService apiService)
         {
+            _apiService = apiService;
+            _pageService = pageService;
             GetMoviesCommand = new Command(GetMovieAsync);
         }
 
-        private void GetMovie(object obj)
-        {
-            var movie = restService.GetMovie();
+        //private void GetMovie(object obj)
+        //{
+        //    var movie = _apiService.GetMovie();
             
-            do
-            {
-                movie = restService.GetMovie();
-            } while (movie.Title == null);
+        //    do
+        //    {
+        //        movie = restService.GetMovie();
+        //    } while (movie.Title == null);
             
 
-            Movies.Add(movie);
+        //    Movies.Add(movie);
 
-        }
+        //}
 
         private void GetMovieAsync(object obj)
         {
@@ -39,12 +43,6 @@ namespace LikeyLikey.ViewModels
 
         }
 
-        //public Task<Movie> GetMoviesAsync()
-        //{
-        //    return  restService.RefreshDataAsync();
-
-
-        //}
 
 
     }

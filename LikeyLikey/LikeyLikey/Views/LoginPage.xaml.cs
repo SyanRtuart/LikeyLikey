@@ -10,7 +10,7 @@ namespace LikeyLikey.Views
 	{
 		public LoginPage ()
 		{
-            ViewModel = new LoginPageViewModel(new PageService());
+            ViewModel = new LoginPageViewModel(new PageService(), new ApiService());
 
             InitializeComponent ();
 		}

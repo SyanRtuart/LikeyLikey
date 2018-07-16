@@ -1,5 +1,7 @@
 ﻿using LikeyLikey.Abstractions;
+using LikeyLikey.Helpers;
 using LikeyLikey.ViewModels;
+using LikeyLikey.Views;
 using Moq;
 using NUnit.Framework;
 
@@ -10,26 +12,16 @@ namespace LikeyLikey.Android.Tests
     {
         private LoginPageViewModel _viewModel;
         private Mock<IPageService> _pageService;
+        private Mock<IApiService> _apiService;
 
         [SetUp]
         public void Setup()
         {
             _pageService = new Mock<IPageService>();
-            _viewModel = new LoginPageViewModel(_pageService.Object);
+            _apiService = new Mock<IApiService>();
+            _viewModel = new LoginPageViewModel(_pageService.Object, _apiService.Object);
         }
 
-        //[Test]
-        //public void LoginAttempt_InvalidCredentials_DisplayInvalidCredentialsMessage()
-        //{
-
-        //    _viewModel.Email = "1";
-        //    _viewModel.Password = "1";
-
-        //    _viewModel.LoginAttemptCommand.Execute(null);
-
-        //    Assert.That(_viewModel.)
-
-        //}
 
         [Test]
         public void CanLogin_UsernameAndPasswordNotNull_ReturnsTrue()
@@ -53,5 +45,10 @@ namespace LikeyLikey.Android.Tests
             Assert.IsFalse (response);
         }
 
+        [Test]
+        public void myTest()
+        {
+        
+        }
     }
 }

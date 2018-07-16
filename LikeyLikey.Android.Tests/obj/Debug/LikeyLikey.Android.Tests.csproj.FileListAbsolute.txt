@@ -134,5 +134,9 @@ C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey.Android.Tests\bin\Debug\Xamarin
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey.Android.Tests\bin\Debug\Xamarin.Forms.Core.xml
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey.Android.Tests\bin\Debug\Xamarin.Forms.Xaml.pdb
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey.Android.Tests\bin\Debug\Xamarin.Forms.Xaml.xml
-C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey.Android.Tests\bin\Debug\LightCaseClient.dll
-C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey.Android.Tests\bin\Debug\LightCaseClient.pdb
+C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey.Android.Tests\bin\Debug\Plugin.Settings.Abstractions.dll
+C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey.Android.Tests\bin\Debug\Plugin.Settings.dll
+C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey.Android.Tests\bin\Debug\Plugin.Settings.pdb
+C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey.Android.Tests\bin\Debug\Plugin.Settings.xml
+C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey.Android.Tests\bin\Debug\Plugin.Settings.Abstractions.pdb
+C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey.Android.Tests\bin\Debug\Plugin.Settings.Abstractions.xml

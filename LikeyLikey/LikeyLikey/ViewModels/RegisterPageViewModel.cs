@@ -4,34 +4,35 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using LikeyLikey.Helpers;
 using LikeyLikey.Services;
+using System.Threading.Tasks;
 
 namespace LikeyLikey.ViewModels
 {
     public class RegisterPageViewModel : BaseViewModel
     {
-        public ICommand RegisterAttemptCommand
-        {
-            get
-            {
-                return new Command(async () =>
-                    {
-                        var isSuccess = await _apiService.RegisterAsync(Email, Password, ConfirmPassword);
+        //public ICommand RegisterAttemptCommand
+        //{
+        //    get
+        //    {
+        //        return new Command(async () =>
+        //            {
+        //                var isSuccess = await _apiService.RegisterAsync(Email, Password, ConfirmPassword);
 
-                        if (isSuccess)
-                        {
-                            Settings.Email = Email;
-                            Settings.Password = Password;
-                            await _pageService.PopModalAsync();
-                        }
-                        else
-                            await _pageService.DisplayAlert("Unsuccessful", "Unable to register - Please try again", "Ok", "Cancel");
-
-                        
-                    }, CanRegister);
-            }
-        }
+        //                if (isSuccess)
+        //                {
+        //                    Settings.Email = Email;
+        //                    Settings.Password = Password;
+        //                    await _pageService.PopModalAsync();
+        //                }
+        //                else
+        //                    await _pageService.DisplayAlert("Unsuccessful", "Unable to register - Please try again", "Ok", "Cancel");
 
 
+        //            }, CanRegister);
+        //    }
+        //}
+
+        public ICommand RegisterAttemptCommand { get; private set; }
         private User _userRegistering = new User();
         private ApiService _apiService = new ApiService();
 
@@ -91,6 +92,8 @@ namespace LikeyLikey.ViewModels
         public RegisterPageViewModel(IPageService pageService)
         {
             _pageService = pageService;
+            RegisterAttemptCommand = new Command(async () => await  RegisterAttempt(), () => CanRegister() );
+
 #if DEBUG
             Email = "ryan123@likeylikey.com";
             Password = "likeylikeyPassword123";
@@ -101,10 +104,22 @@ namespace LikeyLikey.ViewModels
 
         private bool CanRegister()
         {
-            return !string.IsNullOrEmpty(Email) && !string.IsNullOrEmpty(Password);
+            return !string.IsNullOrEmpty(Email) && !string.IsNullOrEmpty(Password) && !string.IsNullOrEmpty(ConfirmPassword);
         }
 
+        private async Task RegisterAttempt()
+        {
+            var isSuccess = await _apiService.RegisterAsync(Email, Password, Password);
 
+            if (isSuccess)
+            {
+                Settings.Email = Email;
+                Settings.Password = Password;
+                await _pageService.PopModalAsync();
+            }
+            else
+                await _pageService.DisplayAlert("Unsuccessful", "Unable to register - Please try again", "Ok", "Cancel");
+        }
 
 
     }
