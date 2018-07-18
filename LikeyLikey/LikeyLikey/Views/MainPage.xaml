@@ -1,18 +1,62 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cards="clr-namespace:PanCardView;assembly=PanCardView"
+             xmlns:swipecards="clr-namespace:SwipeCards.Controls;assembly=SwipeCards.Controls"
              x:Class="LikeyLikey.Views.MainPage">
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="GET" Command="{Binding GetMoviesCommand}" />
-    </ContentPage.ToolbarItems>
-    <ListView ItemsSource="{Binding Movies}">
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <TextCell 
-					Text="{Binding Title}" 
 
-					/>
+
+    <!--<Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="1" Text="{Binding Movie.Title}" ></Label>
+        <Label Grid.Row="2" Text="{Binding Movie.Year}" ></Label>
+        <Label Grid.Row="3" Text="{Binding Movie.Rated}" ></Label>
+        <Label Grid.Row="4" Text="{Binding Movie.Released}" ></Label>
+        <Label Grid.Row="5" Text="{Binding Movie.Runtime}" ></Label>
+        <Label Grid.Row="6" Text="{Binding Movie.Genre}" ></Label>
+        <Label Grid.Row="7" Text="{Binding Movie.Director}" ></Label>
+        <Label Grid.Row="8" Text="{Binding Movie.Writer}" ></Label>
+        <Label Grid.Row="9" Text="{Binding Movie.Metascore}" ></Label>
+
+
+    </Grid>-->
+
+
+
+
+    <swipecards:CardStackView
+        x:Name="CardStackView"
+        ItemsSource="{Binding Movies}"
+        Margin="20, 60" SwipedLeftCommand="{Binding SwipedLeftCommand}"  SwipedRightCommand="{Binding SwipedRightCommand}">
+
+        <swipecards:CardStackView.ItemTemplate>
+            <DataTemplate>
+                <Label Text="{Binding Title}" VerticalOptions="Center" HorizontalOptions="Center"   />
+                
             </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+        </swipecards:CardStackView.ItemTemplate>
+
+    </swipecards:CardStackView>
+
+
+
+
 </ContentPage>
+
+<!--<Button   Command="{Binding GetListOfMovies,Mode=TwoWay}"  Text="GET LIST OF MOVIE" HorizontalOptions="FillAndExpand"  />-->
+    

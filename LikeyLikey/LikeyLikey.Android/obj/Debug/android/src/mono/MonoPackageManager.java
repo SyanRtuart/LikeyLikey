@@ -108,8 +108,10 @@ class MonoPackageManager_Resources {
 		/* We need to ensure that "LikeyLikey.Android.dll" comes first in this list. */
 		"LikeyLikey.Android.dll",
 		"FormsViewGroup.dll",
-		"LightCaseClient.dll",
 		"Newtonsoft.Json.dll",
+		"Plugin.Settings.Abstractions.dll",
+		"Plugin.Settings.dll",
+		"SwipeCards.Controls.dll",
 		"Xamarin.Android.Arch.Core.Common.dll",
 		"Xamarin.Android.Arch.Lifecycle.Common.dll",
 		"Xamarin.Android.Arch.Lifecycle.Runtime.dll",

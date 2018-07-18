@@ -11,14 +11,14 @@ namespace LikeyLikey.Services
             return await Application.Current.MainPage.DisplayAlert(title, message, ok, cancel);
         }
 
-        public async Task PopAsync()
+        public async Task PopModalAsync()
         {
-            await Application.Current.MainPage.Navigation.PopAsync(true);
+            await Application.Current.MainPage.Navigation.PopModalAsync(true);
         }
 
-        public async Task PushAsync(Page page)
+        public async Task PushModalAsync(Page page)
         {
-            await Application.Current.MainPage.Navigation.PushAsync(page);
+            await Application.Current.MainPage.Navigation.PushModalAsync(page);
         }
     }
 }

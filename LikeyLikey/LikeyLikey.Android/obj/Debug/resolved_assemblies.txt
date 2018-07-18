@@ -1,12 +1,15 @@
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\android\assets\LikeyLikey.Android.dll
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\android\assets\FormsViewGroup.dll
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\android\assets\Java.Interop.dll
-C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\android\assets\LightCaseClient.dll
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\android\assets\Mono.Android.dll
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\android\assets\mscorlib.dll
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\android\assets\Newtonsoft.Json.dll
+C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\android\assets\Plugin.Settings.Abstractions.dll
+C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\android\assets\Plugin.Settings.dll
+C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\android\assets\SwipeCards.Controls.dll
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\android\assets\System.Core.dll
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\android\assets\System.dll
+C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\android\assets\System.IO.Compression.dll
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\android\assets\System.Net.Http.dll
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\android\assets\System.Xml.dll
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\android\assets\System.Xml.Linq.dll
@@ -39,7 +42,6 @@ C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\an
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\android\assets\System.Transactions.dll
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\android\assets\System.Diagnostics.StackTrace.dll
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\android\assets\System.Globalization.Extensions.dll
-C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\android\assets\System.IO.Compression.dll
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\android\assets\System.IO.Compression.FileSystem.dll
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\android\assets\System.ComponentModel.Composition.dll
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\android\assets\System.Runtime.Serialization.dll
@@ -64,4 +66,6 @@ C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\an
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\android\assets\System.Runtime.InteropServices.dll
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\android\assets\System.Runtime.Extensions.dll
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\android\assets\System.Reflection.Extensions.dll
+C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\android\assets\System.Diagnostics.Tools.dll
+C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\android\assets\System.Threading.Tasks.dll
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\android\assets\Mono.Security.dll

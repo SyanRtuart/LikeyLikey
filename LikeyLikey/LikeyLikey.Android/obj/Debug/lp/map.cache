@@ -27,3 +27,10 @@ netstandard
 Newtonsoft.Json
 LightCaseClient
 System.Web.Extensions
+Plugin.Settings.Abstractions
+Plugin.Settings
+MLToolkit.Forms.SwipeCardView
+PanCardView
+PanCardView.Droid
+SwipeCards.Controls
+System.Diagnostics.Tools

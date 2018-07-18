@@ -1,20 +1,41 @@
-﻿using LightCaseClient;
-using LikeyLikey.Abstractions;
+﻿using LikeyLikey.Abstractions;
 using LikeyLikey.Models;
-using LikeyLikey.Views;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
+using LikeyLikey.Helpers;
+using LikeyLikey.Services;
+using System.Threading.Tasks;
 
 namespace LikeyLikey.ViewModels
 {
     public class RegisterPageViewModel : BaseViewModel
     {
+        //public ICommand RegisterAttemptCommand
+        //{
+        //    get
+        //    {
+        //        return new Command(async () =>
+        //            {
+        //                var isSuccess = await _apiService.RegisterAsync(Email, Password, ConfirmPassword);
+
+        //                if (isSuccess)
+        //                {
+        //                    Settings.Email = Email;
+        //                    Settings.Password = Password;
+        //                    await _pageService.PopModalAsync();
+        //                }
+        //                else
+        //                    await _pageService.DisplayAlert("Unsuccessful", "Unable to register - Please try again", "Ok", "Cancel");
+
+
+        //            }, CanRegister);
+        //    }
+        //}
+
         public ICommand RegisterAttemptCommand { get; private set; }
-        public string Title { get; set; } = "Register";
-        private Register _register = new Register();
+        private User _userRegistering = new User();
+        private ApiService _apiService = new ApiService();
+
         private string _email;
 
         public string Email
@@ -25,8 +46,8 @@ namespace LikeyLikey.ViewModels
                 if (_email != value)
                 {
                     _email = value;
-                    _register.Email = _email;
-                    _register.Username = _email;
+                    _userRegistering.Email = _email;
+                    _userRegistering.Username = _email;
                     ((Command)RegisterAttemptCommand).ChangeCanExecute();
                 }
             }
@@ -42,7 +63,7 @@ namespace LikeyLikey.ViewModels
                 if (_password != value)
                 {
                     _password = value;
-                    _register.Password = _password;
+                    _userRegistering.Password = _password;
                     ((Command)RegisterAttemptCommand).ChangeCanExecute();
                 }
             }
@@ -58,43 +79,47 @@ namespace LikeyLikey.ViewModels
                 if (_confirmPassword != value)
                 {
                     _confirmPassword = value;
-                    _register.ConfirmPassword = _confirmPassword;
+                    _userRegistering.ConfirmPassword = _confirmPassword;
                     ((Command)RegisterAttemptCommand).ChangeCanExecute();
                 }
             }
         }
 
 
+        public string Title { get; set; } = "Register";
+
         private readonly IPageService _pageService;
         public RegisterPageViewModel(IPageService pageService)
         {
             _pageService = pageService;
-            RegisterAttemptCommand = new Command(RegisterAttempt, CanRegister);
+            RegisterAttemptCommand = new Command(async () => await  RegisterAttempt(), () => CanRegister() );
+
+#if DEBUG
+            Email = "ryan123@likeylikey.com";
+            Password = "likeylikeyPassword123";
+            ConfirmPassword = "likeylikeyPassword123";
+#endif 
         }
 
-        private void RegisterAttempt()
-        {
-            string url = "http://likey20180525084949.azurewebsites.net/api/account/register";
-            try
-            {
-                //GenericProxies.RestPost<string, (string, string)>(url, (_email, _password));
-
-                GenericProxies.RestPost<string, Register>(url, _register);
-
-            }
-            catch (Exception ex)
-            {
-
-                Console.WriteLine(ex.Message);
-            }
-        }
 
         private bool CanRegister()
         {
-            return !string.IsNullOrEmpty(Email) && !string.IsNullOrEmpty(Password);
+            return !string.IsNullOrEmpty(Email) && !string.IsNullOrEmpty(Password) && !string.IsNullOrEmpty(ConfirmPassword);
         }
 
+        private async Task RegisterAttempt()
+        {
+            var isSuccess = await _apiService.RegisterAsync(Email, Password, Password);
 
+            if (isSuccess)
+            {
+                Settings.Email = Email;
+                Settings.Password = Password;
+                await _pageService.PopModalAsync();
+            }
+            else
+                await _pageService.DisplayAlert("Unsuccessful", "Unable to register - Please try again", "Ok", "Cancel");
+        }
 
 
     }

@@ -1,0 +1,94 @@
+﻿using LikeyLikey.Abstractions;
+using LikeyLikey.Models;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace LikeyLikey.Services
+{
+    class ApiService : IApiService
+    {
+        private string _url = @"http://likey20180525084949.azurewebsites.net/";
+
+        //private string _movieUrl = @"http://www.omdbapi.com/?i=tt3896198&apikey=90caf548";
+
+        private string _movieUrl;
+
+        public string MovieUrl
+        {
+            get {
+                Random x = new Random();
+                
+                return @"http://www.omdbapi.com/?i=tt38961" + x.Next(10,99) + "&apikey=90caf548";
+            }
+            set { _movieUrl = value; }
+        }
+
+
+
+        private HttpClient _client = new HttpClient();
+        private List<KeyValuePair<string, string>> _settingsKeyValuePair = new List<KeyValuePair<string, string>>();
+
+        public async Task<string> LoginAsync(string email, string password)
+        {
+            _settingsKeyValuePair.Add(new KeyValuePair<string, string>("username", email));
+            _settingsKeyValuePair.Add(new KeyValuePair<string, string>("password", password));
+            _settingsKeyValuePair.Add(new KeyValuePair<string, string>("grant_type", "password"));
+
+            //var request = new HttpRequestMessage(HttpMethod.Post, "http://likey20180525084949.azurewebsites.net/token");
+
+            var request = new HttpRequestMessage(HttpMethod.Post, _url + "token");
+
+
+            request.Content = new FormUrlEncodedContent(_settingsKeyValuePair);
+         
+            var response = await _client.SendAsync(request);
+
+            var jwt = await response.Content.ReadAsStringAsync();
+
+            var jwtDynamic = JsonConvert.DeserializeObject<Token>(jwt);
+
+            return jwtDynamic.AccessToken;
+        }
+
+        public async Task<bool> RegisterAsync(string email, string password, string confirmPassword)
+        {            
+            var user = new User
+            {
+                Email = email,
+                Password = password,
+                ConfirmPassword = password,
+                Username = email
+            };
+
+            var json = JsonConvert.SerializeObject(user);
+
+            var content = new StringContent(json);
+
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            var response = await _client.PostAsync(_url + "api/account/register", content);
+
+            return response.IsSuccessStatusCode;
+        }
+
+        public async Task<Movie> GetMovie()
+        {
+                      
+
+            var response = await _client.GetAsync(MovieUrl);
+            var jwt = await response.Content.ReadAsStringAsync();
+            var movie = JsonConvert.DeserializeObject<Movie>(jwt);
+
+            return movie;
+        }
+
+
+
+    }
+}
