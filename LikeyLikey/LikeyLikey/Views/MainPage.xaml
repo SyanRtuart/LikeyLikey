@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cards="clr-namespace:PanCardView;assembly=PanCardView"
+             xmlns:swipecards="clr-namespace:SwipeCards.Controls;assembly=SwipeCards.Controls"
              x:Class="LikeyLikey.Views.MainPage">
-    <ContentPage.ToolbarItems>
-        <!--<ToolbarItem Text="GET" Command="{Binding GetMoviesCommand}" />-->
-    </ContentPage.ToolbarItems>
 
-    <Grid >
+
+    <!--<Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
             <RowDefinition Height="20"/>
@@ -34,14 +34,29 @@
         <Label Grid.Row="9" Text="{Binding Movie.Metascore}" ></Label>
 
 
+    </Grid>-->
 
 
-        <Button Grid.Row="12" Command="{Binding GetNextMovieCommand,Mode=TwoWay}"  Text="GET MOVIE" HeightRequest="40" VerticalOptions="Start"/>
 
-    </Grid>
 
+    <swipecards:CardStackView
+        x:Name="CardStackView"
+        ItemsSource="{Binding Movies}"
+        Margin="20, 60" SwipedLeftCommand="{Binding SwipedLeftCommand}"  SwipedRightCommand="{Binding SwipedRightCommand}">
+
+        <swipecards:CardStackView.ItemTemplate>
+            <DataTemplate>
+                <Label Text="{Binding Title}" VerticalOptions="Center" HorizontalOptions="Center"   />
+                
+            </DataTemplate>
+        </swipecards:CardStackView.ItemTemplate>
+
+    </swipecards:CardStackView>
 
 
 
 
 </ContentPage>
+
+<!--<Button   Command="{Binding GetListOfMovies,Mode=TwoWay}"  Text="GET LIST OF MOVIE" HorizontalOptions="FillAndExpand"  />-->
+    

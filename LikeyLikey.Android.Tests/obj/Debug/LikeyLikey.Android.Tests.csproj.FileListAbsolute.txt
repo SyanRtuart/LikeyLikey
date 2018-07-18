@@ -140,3 +140,7 @@ C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey.Android.Tests\bin\Debug\Plugin.
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey.Android.Tests\bin\Debug\Plugin.Settings.xml
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey.Android.Tests\bin\Debug\Plugin.Settings.Abstractions.pdb
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey.Android.Tests\bin\Debug\Plugin.Settings.Abstractions.xml
+C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey.Android.Tests\bin\Debug\SwipeCards.Controls.dll
+C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey.Android.Tests\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey.Android.Tests\bin\Debug\SwipeCards.Controls.pdb
+C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey.Android.Tests\bin\Debug\System.Diagnostics.DiagnosticSource.xml

@@ -62,25 +62,28 @@ namespace LikeyLikey.ViewModels
         private async Task LoginAttempt()
         {
 
-            string accessToken = null;
-            if (Settings.AccessToken == "")
-                accessToken = await _apiService.LoginAsync(Email, Password);
-            else
-                accessToken = Settings.AccessToken;
+            await _pageService.PushModalAsync(new MainPage());
+
+
+            //string accessToken = null;
+            //if (Settings.AccessToken == "")
+            //    accessToken = await _apiService.LoginAsync(Email, Password);
+            //else
+            //    accessToken = Settings.AccessToken;
 
 
 
 
-            if (accessToken != null)
-            {
-                Settings.AccessToken = accessToken;
+            //if (accessToken != null)
+            //{
+            //    Settings.AccessToken = accessToken;
 
-                //await _pageService.DisplayAlert("Youre in", "You have logged in - Please try again", "Ok", "Cancel");
-                await _pageService.PushModalAsync(new MainPage());
-            }
-            else
-                await _pageService.DisplayAlert("Unsuccessful", "Unable to Login - Please try again", "Ok", "Cancel");
-            
+            //    //await _pageService.DisplayAlert("Youre in", "You have logged in - Please try again", "Ok", "Cancel");
+            //    await _pageService.PushModalAsync(new MainPage());
+            //}
+            //else
+            //    await _pageService.DisplayAlert("Unsuccessful", "Unable to Login - Please try again", "Ok", "Cancel");
+
 
         }
 

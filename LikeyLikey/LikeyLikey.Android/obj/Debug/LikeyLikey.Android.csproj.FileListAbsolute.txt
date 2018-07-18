@@ -152,6 +152,9 @@ C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\li
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\linksrc\Plugin.Settings.dll.mdb
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\android\assets\Plugin.Settings.Abstractions.dll.mdb
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\android\assets\Plugin.Settings.dll.mdb
+C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\bin\Debug\SwipeCards.Controls.pdb
+C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\linksrc\SwipeCards.Controls.pdb
+C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\android\assets\SwipeCards.Controls.pdb
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\bin\Debug\LikeyLikey.Android.dll
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\linksrc\LikeyLikey.Android.dll.mdb
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\Debug\linksrc\FormsViewGroup.dll.mdb

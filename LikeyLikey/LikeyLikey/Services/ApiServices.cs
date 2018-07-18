@@ -15,10 +15,21 @@ namespace LikeyLikey.Services
     {
         private string _url = @"http://likey20180525084949.azurewebsites.net/";
 
-        private string _movieUrl = @"http://www.omdbapi.com/?i=tt3896198&apikey=90caf548";
+        //private string _movieUrl = @"http://www.omdbapi.com/?i=tt3896198&apikey=90caf548";
+
+        private string _movieUrl;
+
+        public string MovieUrl
+        {
+            get {
+                Random x = new Random();
+                
+                return @"http://www.omdbapi.com/?i=tt38961" + x.Next(10,99) + "&apikey=90caf548";
+            }
+            set { _movieUrl = value; }
+        }
 
 
-        
 
         private HttpClient _client = new HttpClient();
         private List<KeyValuePair<string, string>> _settingsKeyValuePair = new List<KeyValuePair<string, string>>();
@@ -68,12 +79,16 @@ namespace LikeyLikey.Services
 
         public async Task<Movie> GetMovie()
         {
-            var response = await _client.GetAsync(_movieUrl);
+                      
+
+            var response = await _client.GetAsync(MovieUrl);
             var jwt = await response.Content.ReadAsStringAsync();
             var movie = JsonConvert.DeserializeObject<Movie>(jwt);
 
             return movie;
         }
+
+
 
     }
 }

@@ -57,3 +57,10 @@ C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.iOS\bin\iPhoneSimula
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.iOS\bin\iPhoneSimulator\Debug\Plugin.Settings.Abstractions.dll
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.iOS\bin\iPhoneSimulator\Debug\Plugin.Settings.Abstractions.pdb
 C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.iOS\bin\iPhoneSimulator\Debug\Plugin.Settings.dll
+C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.iOS\bin\iPhoneSimulator\Debug\SwipeCards.Controls.dll
+C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.iOS\bin\iPhoneSimulator\Debug\SwipeCards.Controls.pdb
+C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.iOS\bin\iPhoneSimulator\Debug\System.IO.Compression.dll
+C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.iOS\bin\iPhoneSimulator\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.iOS\bin\iPhoneSimulator\Debug\System.Security.Cryptography.Algorithms.dll
+C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.iOS\bin\iPhoneSimulator\Debug\System.Security.Cryptography.Encoding.dll
+C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.iOS\bin\iPhoneSimulator\Debug\System.Security.Cryptography.X509Certificates.dll

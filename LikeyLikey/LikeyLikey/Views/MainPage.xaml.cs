@@ -22,5 +22,7 @@ namespace LikeyLikey.Views
             get { return BindingContext as MainPageViewModel; }
             set { BindingContext = value; }
         }
+
+      
     }
 }
