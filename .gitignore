@@ -183,3 +183,6 @@ FakesAssemblies/
 
 .DS_Store
 .vs/
+LikeyLikey/LikeyLikey.Android/bin/
+LikeyLikey/LikeyLikey.Android/obj/
+LikeyLikey/LikeyLikey.iOS/obj/
