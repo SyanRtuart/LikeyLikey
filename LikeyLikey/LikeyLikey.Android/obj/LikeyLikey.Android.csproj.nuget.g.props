@@ -3,9 +3,9 @@
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <RestoreSuccess Condition=" '$(RestoreSuccess)' == '' ">True</RestoreSuccess>
     <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
-    <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">C:\Users\Ryan\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\project.assets.json</ProjectAssetsFile>
+    <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">C:\Users\beatt\source\repos\LikeyLikey\LikeyLikey\LikeyLikey.Android\obj\project.assets.json</ProjectAssetsFile>
     <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
-    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\Ryan\.nuget\packages\</NuGetPackageFolders>
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\beatt\.nuget\packages\</NuGetPackageFolders>
     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
     <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">4.7.0</NuGetToolVersion>
   </PropertyGroup>
@@ -13,7 +13,7 @@
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
   </PropertyGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <Import Project="$(NuGetPackageRoot)xamarin.forms\3.0.0.446417\build\netstandard2.0\Xamarin.Forms.props" Condition="Exists('$(NuGetPackageRoot)xamarin.forms\3.0.0.446417\build\netstandard2.0\Xamarin.Forms.props')" />
+    <Import Project="$(NuGetPackageRoot)xamarin.forms\3.1.0.697729\build\netstandard2.0\Xamarin.Forms.props" Condition="Exists('$(NuGetPackageRoot)xamarin.forms\3.1.0.697729\build\netstandard2.0\Xamarin.Forms.props')" />
     <Import Project="$(NuGetPackageRoot)msbuild.sdk.extras\1.2.1\build\MSBuild.Sdk.Extras.props" Condition="Exists('$(NuGetPackageRoot)msbuild.sdk.extras\1.2.1\build\MSBuild.Sdk.Extras.props')" />
   </ImportGroup>
 </Project>

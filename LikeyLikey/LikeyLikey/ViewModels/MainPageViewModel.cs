@@ -75,17 +75,16 @@ namespace LikeyLikey.ViewModels
 
         }
 
-
         private async Task Like(Movie movie)
         {
             await _pageService.DisplayAlert("Liked" + movie.Title, "Liked", "Ok", "Cancel");
         }
 
-
         private async Task Dislike(Movie movie)
         {
             await _pageService.DisplayAlert("Disliked" + movie.Title, "Liked", "Ok", "Cancel");
         }
+
         private async void GetListOfMoviesAsync(object obj)
         {
             try
@@ -103,8 +102,6 @@ namespace LikeyLikey.ViewModels
                 await _pageService.DisplayAlert( ex.Message , "Movie Not Found", "Ok", "Cancel");
             }
           
-            
-
             //do
             //{
             //    Movie = await _apiService.GetMovie();
