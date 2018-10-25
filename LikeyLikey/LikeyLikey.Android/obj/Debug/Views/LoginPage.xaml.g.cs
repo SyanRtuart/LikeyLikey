@@ -13,7 +13,8 @@
 namespace LikeyLikey.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\Ryan\\source\\repos\\LikeyLikey\\LikeyLikey\\LikeyLikey\\Views\\LoginPage.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\beatt\\source\\repos\\LikeyLikey\\LikeyLikey\\LikeyLikey\\Views\\LoginPage.xaml" +
+        "")]
     public partial class LoginPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
